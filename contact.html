@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Orders - ARTEM RUGS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f0;
+            --accent: #d4af37;
+            --text: #2a2a2a;
+            --light-text: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(245, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .contact-container {
+            padding-top: 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            padding-bottom: 6rem;
+        }
+
+        .contact-hero {
+            text-align: center;
+            margin-bottom: 6rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .contact-hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            margin-bottom: 6rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            margin-bottom: 2rem;
+        }
+
+        .detail-item h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--light-text);
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1rem;
+            border: 1px solid rgba(26, 26, 26, 0.2);
+            background: var(--secondary);
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            padding: 1.2rem 3rem;
+            background: var(--primary);
+            color: var(--secondary);
+            border: 2px solid var(--primary);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .submit-button:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .process-section {
+            background: #fff;
+            padding: 6rem 4rem;
+            margin-left: -4rem;
+            margin-right: -4rem;
+        }
+
+        .process-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .process-step h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+            color: var(--light-text);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .process-section {
+                padding: 4rem 2rem;
+                margin-left: -2rem;
+                margin-right: -2rem;
+            }
+
+            .contact-hero h1 {
+                font-size: 3rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">ARTEM</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Custom Orders</a></li>
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-hero">
+            <h1>CUSTOM ORDERS</h1>
+            <p>
+                Each rug I create is made to order, tailored to your specific vision and space. 
+                Whether you're drawn to one of my existing designs or want to create something 
+                entirely unique, I'm here to bring your ideas to life.
+            </p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Let's Create Your Perfect Rug</h2>
+                <p>
+                    I work closely with each client to understand their space, aesthetic preferences, 
+                    and functional needs. Custom projects typically take 6-10 weeks from concept to 
+                    completion, depending on size and complexity.
+                </p>
+                <p>
+                    Fill out the form with as much detail as possible about your project. I'll respond 
+                    within 48 hours to discuss your vision and provide a detailed quote.
+                </p>
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <h3>Email</h3>
+                        <p>hello@artemrugs.com</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Studio</h3>
+                        <p>Brooklyn, New York</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Instagram</h3>
+                        <p>@artemrugs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="project-type">Project Type *</label>
+                    <select id="project-type" name="project-type" required>
+                        <option value="">Select an option</option>
+                        <option value="existing">Order Existing Design</option>
+                        <option value="custom-size">Existing Design - Custom Size</option>
+                        <option value="fully-custom">Fully Custom Design</option>
+                        <option value="consultation">Design Consultation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dimensions">Desired Dimensions</label>
+                    <input type="text" id="dimensions" name="dimensions" placeholder="e.g., 8' × 10'">
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell Me About Your Vision *</label>
+                    <textarea id="message" name="message" required placeholder="Describe your space, style preferences, color palette, and any specific requirements..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit Inquiry</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="process-section">
+        <div class="process-content">
+            <h2>The Custom Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your vision, space requirements, and aesthetic preferences in detail.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Design</h3>
+                    <p>I create sketches and samples, refining the design until it's perfect.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Creation</h3>
+                    <p>Your rug is hand-crafted in my studio using traditional techniques.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Delivery</h3>
+                    <p>Your finished piece is carefully packaged and shipped to your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! This is a demo form. In production, this would send your message to hello@artemrugs.com');
+        });
+    </script>
+</body>
+</html>
