@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLSTICE - ARTEM RUGS</title>
+    <title>Solstice - Rugs By Quana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --secondary: #f5f5f0;
-            --accent: #d4af37;
+            --primary: #2d1810;
+            --secondary: #faf8f5;
+            --accent: #c9a961;
+            --accent2: #8b5a3c;
             --text: #2a2a2a;
-            --light-text: #666;
+            --light-text: #6b5d54;
         }
 
         * {
@@ -23,31 +24,53 @@
         }
 
         body {
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Raleway', sans-serif;
             background: var(--secondary);
             color: var(--text);
         }
 
-        nav {
+        .page-accent {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            padding: 2rem 4rem;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+            z-index: 10000;
+        }
+
+        nav {
+            position: fixed;
+            top: 4px;
+            width: 100%;
+            padding: 1.5rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(245, 245, 240, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+            background: rgba(250, 248, 245, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
         }
 
         .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 0.1em;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
             color: var(--primary);
+            letter-spacing: 0.02em;
             text-decoration: none;
+        }
+
+        .logo::after {
+            content: 'by Quana';
+            display: block;
+            font-size: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: -0.3rem;
         }
 
         .nav-links {
@@ -59,9 +82,9 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text);
-            font-weight: 300;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             transition: all 0.3s ease;
             position: relative;
@@ -70,12 +93,17 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 1px;
+            height: 2px;
             background: var(--accent);
             transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent2);
         }
 
         .nav-links a:hover::after {
@@ -105,6 +133,7 @@
             animation: fadeIn 1s ease-out;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
         .product-image::after {
@@ -113,11 +142,25 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 4rem;
             letter-spacing: 0.2em;
             color: rgba(255, 255, 255, 0.15);
             text-align: center;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            z-index: 2;
         }
 
         .product-info {
@@ -125,23 +168,72 @@
         }
 
         .product-title {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            letter-spacing: 0.1em;
+            font-weight: 900;
             margin-bottom: 1rem;
             line-height: 1;
+            color: var(--primary);
         }
 
         .product-price {
-            font-size: 2rem;
-            font-weight: 300;
-            color: var(--light-text);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent2);
             margin-bottom: 2rem;
         }
 
+        .preorder-notice {
+            background: linear-gradient(135deg, #fff9f0 0%, #faf8f5 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .preorder-notice h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .preorder-notice p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .preorder-notice strong {
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .timeline-icon {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
         .product-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.9;
             font-weight: 300;
             margin-bottom: 3rem;
             color: var(--text);
@@ -154,16 +246,17 @@
         .spec-item {
             display: flex;
             justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
-            font-size: 0.95rem;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(45, 24, 16, 0.1);
+            font-size: 1rem;
         }
 
         .spec-label {
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            color: var(--primary);
         }
 
         .spec-value {
@@ -171,36 +264,61 @@
             color: var(--light-text);
         }
 
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .cta-button {
             display: inline-block;
-            padding: 1.2rem 3rem;
+            padding: 1.3rem 3rem;
             background: var(--primary);
             color: var(--secondary);
             text-decoration: none;
             font-size: 0.9rem;
+            font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border: 2px solid var(--primary);
-            margin-right: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button:hover {
-            background: transparent;
-            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .back-link {
-            display: inline-block;
-            padding: 1.2rem 3rem;
             background: transparent;
             color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
+            border-color: var(--primary);
         }
 
         .back-link:hover {
@@ -235,25 +353,50 @@
             .nav-links {
                 gap: 1.5rem;
             }
+
+            .button-group {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="page-accent"></div>
+    
     <nav>
-        <a href="index.html" class="logo">ARTEM</a>
+        <a href="index.html" class="logo">RUGS</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Our Story</a></li>
             <li><a href="contact.html">Custom Orders</a></li>
         </ul>
     </nav>
 
     <div class="product-container">
         <div class="product-grid">
-            <div class="product-image"></div>
+            <div class="product-image">
+                <div class="product-badge">Pre-Order</div>
+            </div>
             <div class="product-info">
-                <h1 class="product-title">SOLSTICE</h1>
+                <h1 class="product-title">Solstice</h1>
                 <p class="product-price">$2,200</p>
+                
+                <div class="preorder-notice">
+                    <h3>🕐 Pre-Order Information</h3>
+                    <p>This beautiful piece is <strong>handcrafted to order</strong> with love and precision.</p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-icon">✨</span>
+                            <span><strong>3-4 weeks</strong> to handcraft</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-icon">📦</span>
+                            <span><strong>5 days</strong> to ship</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem;"><strong>Total timeline: Approximately 4-5 weeks from order to delivery</strong></p>
+                </div>
+
                 <p class="product-description">
                     Radiant warmth meets geometric precision. The Solstice rug features a striking golden 
                     pattern hand-tufted into a neutral base, creating a bold statement piece. Inspired by 
@@ -279,12 +422,14 @@
                         <span class="spec-value">Hand-tufted</span>
                     </div>
                     <div class="spec-item">
-                        <span class="spec-label">Origin</span>
-                        <span class="spec-value">Made to order</span>
+                        <span class="spec-label">Production Time</span>
+                        <span class="spec-value">3-4 weeks + 5 days shipping</span>
                     </div>
                 </div>
-                <a href="contact.html" class="cta-button">Order Now</a>
-                <a href="index.html" class="back-link">Back to Collection</a>
+                <div class="button-group">
+                    <a href="contact.html" class="cta-button"><span>Pre-Order Now</span></a>
+                    <a href="index.html" class="cta-button back-link"><span>Back to Collection</span></a>
+                </div>
             </div>
         </div>
     </div>

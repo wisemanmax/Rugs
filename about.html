@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - ARTEM RUGS</title>
+    <title>Our Story - Rugs By Quana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --secondary: #f5f5f0;
-            --accent: #d4af37;
+            --primary: #2d1810;
+            --secondary: #faf8f5;
+            --accent: #c9a961;
+            --accent2: #8b5a3c;
             --text: #2a2a2a;
-            --light-text: #666;
+            --light-text: #6b5d54;
         }
 
         * {
@@ -23,31 +24,53 @@
         }
 
         body {
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Raleway', sans-serif;
             background: var(--secondary);
             color: var(--text);
         }
 
-        nav {
+        .page-accent {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            padding: 2rem 4rem;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+            z-index: 10000;
+        }
+
+        nav {
+            position: fixed;
+            top: 4px;
+            width: 100%;
+            padding: 1.5rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(245, 245, 240, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+            background: rgba(250, 248, 245, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
         }
 
         .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 0.1em;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
             color: var(--primary);
+            letter-spacing: 0.02em;
             text-decoration: none;
+        }
+
+        .logo::after {
+            content: 'by Quana';
+            display: block;
+            font-size: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: -0.3rem;
         }
 
         .nav-links {
@@ -59,9 +82,9 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text);
-            font-weight: 300;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             transition: all 0.3s ease;
             position: relative;
@@ -70,12 +93,17 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 1px;
+            height: 2px;
             background: var(--accent);
             transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent2);
         }
 
         .nav-links a:hover::after {
@@ -83,7 +111,7 @@
         }
 
         .about-container {
-            padding-top: 120px;
+            padding-top: 100px;
             max-width: 1200px;
             margin: 0 auto;
             padding-left: 4rem;
@@ -94,149 +122,255 @@
         .about-hero {
             text-align: center;
             margin-bottom: 6rem;
+            padding: 4rem 0;
             animation: fadeInUp 1s ease-out;
         }
 
+        .about-hero .subtitle {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
         .about-hero h1 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 5rem;
-            letter-spacing: 0.1em;
+            font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1;
+            color: var(--primary);
         }
 
-        .about-hero p {
-            font-size: 1.2rem;
+        .about-hero h1 span {
+            display: block;
+            font-size: 0.6em;
+            font-style: italic;
+            color: var(--accent2);
+            margin-top: 1rem;
+        }
+
+        .story-section {
+            margin-bottom: 6rem;
+            background: linear-gradient(135deg, #fff 0%, #faf8f5 100%);
+            padding: 5rem 4rem;
+            margin-left: -4rem;
+            margin-right: -4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            font-style: italic;
+            line-height: 1.4;
+            color: var(--accent2);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .story-quote::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -2rem;
+            left: 0;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 2;
             font-weight: 300;
-            letter-spacing: 0.05em;
-            color: var(--light-text);
+            color: var(--text);
+            margin-bottom: 2rem;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+        .story-text strong {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .story-text em {
+            font-style: italic;
+            color: var(--accent2);
+        }
+
+        .journey-section {
             margin-bottom: 6rem;
         }
 
-        .about-image {
-            width: 100%;
-            aspect-ratio: 3/4;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            position: relative;
-        }
-
-        .about-image::after {
-            content: 'STUDIO';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Bebas Neue', sans-serif;
+        .journey-title {
+            font-family: 'Playfair Display', serif;
             font-size: 3rem;
-            letter-spacing: 0.2em;
-            color: rgba(255, 255, 255, 0.1);
+            font-weight: 900;
             text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary);
         }
 
-        .about-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
         }
 
-        .about-text h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            letter-spacing: 0.1em;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-
-        .philosophy-section {
+        .journey-card {
+            text-align: center;
+            padding: 2rem;
             background: #fff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .journey-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .journey-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .journey-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+            color: var(--light-text);
+        }
+
+        .values-section {
+            background: var(--primary);
+            color: var(--secondary);
             padding: 6rem 4rem;
             margin-left: -4rem;
             margin-right: -4rem;
             margin-bottom: 6rem;
         }
 
-        .philosophy-content {
+        .values-content {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
         }
 
-        .philosophy-content h2 {
-            font-family: 'Bebas Neue', sans-serif;
+        .values-title {
+            font-family: 'Playfair Display', serif;
             font-size: 3rem;
-            letter-spacing: 0.1em;
-            margin-bottom: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--accent);
         }
 
-        .philosophy-grid {
+        .values-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
         }
 
-        .philosophy-item h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 0.1em;
+        .value-item {
+            padding: 2rem;
+            border: 2px solid var(--accent);
+        }
+
+        .value-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--accent);
         }
 
-        .philosophy-item p {
-            font-size: 1rem;
+        .value-item p {
+            font-size: 1.05rem;
             line-height: 1.8;
             font-weight: 300;
-            color: var(--light-text);
         }
 
         .cta-section {
             text-align: center;
+            padding: 4rem 0;
         }
 
         .cta-section h2 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 3rem;
-            letter-spacing: 0.1em;
+            font-weight: 900;
             margin-bottom: 2rem;
+            color: var(--primary);
         }
 
         .cta-section p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 300;
             color: var(--light-text);
             margin-bottom: 3rem;
+            line-height: 1.8;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1.2rem 3rem;
+            padding: 1.3rem 3rem;
             background: var(--primary);
             color: var(--secondary);
             text-decoration: none;
             font-size: 0.9rem;
+            font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button:hover {
-            background: transparent;
-            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes fadeInUp {
@@ -251,22 +385,26 @@
         }
 
         @media (max-width: 968px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .philosophy-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
             .about-container {
                 padding-left: 2rem;
                 padding-right: 2rem;
             }
 
-            .philosophy-section {
+            .story-section {
+                padding: 3rem 2rem;
+                margin-left: -2rem;
+                margin-right: -2rem;
+            }
+
+            .journey-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-section {
                 padding: 4rem 2rem;
                 margin-left: -2rem;
                 margin-right: -2rem;
@@ -287,72 +425,109 @@
     </style>
 </head>
 <body>
+    <div class="page-accent"></div>
+    
     <nav>
-        <a href="index.html" class="logo">ARTEM</a>
+        <a href="index.html" class="logo">RUGS</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Our Story</a></li>
             <li><a href="contact.html">Custom Orders</a></li>
         </ul>
     </nav>
 
     <div class="about-container">
         <div class="about-hero">
-            <h1>THE ARTISAN</h1>
-            <p>Crafting Contemporary Floor Art Since 2018</p>
-        </div>
-
-        <div class="about-content">
-            <div class="about-image"></div>
-            <div class="about-text">
-                <h2>Where Tradition Meets Modern Design</h2>
-                <p>
-                    I'm Artem, a textile artist specializing in contemporary rug design. My journey began 
-                    in a small workshop where I learned traditional hand-tufting techniques from master 
-                    craftsmen. What started as an apprenticeship evolved into a passion for reimagining 
-                    what rugs could be in modern spaces.
-                </p>
-                <p>
-                    Each piece I create is a dialogue between heritage craft and contemporary aesthetics. 
-                    I work exclusively with premium natural materials, primarily wool and silk, sourced 
-                    from ethical suppliers. The designs emerge from my fascination with minimalism, 
-                    architecture, and the subtle interplay of texture and color.
-                </p>
-                <p>
-                    Every rug is made to order, ensuring that each client receives a unique piece tailored 
-                    to their space. From the initial concept to the final knot, I oversee every step of 
-                    the creation process in my studio.
-                </p>
-            </div>
+            <p class="subtitle">The Heart Behind The Craft</p>
+            <h1>
+                Quana's Story
+                <span>From Struggle to Sanctuary</span>
+            </h1>
         </div>
     </div>
 
-    <section class="philosophy-section">
-        <div class="philosophy-content">
-            <h2>Design Philosophy</h2>
-            <div class="philosophy-grid">
-                <div class="philosophy-item">
-                    <h3>Timeless Design</h3>
-                    <p>
-                        I create pieces that transcend trends, focusing on fundamental principles of 
-                        composition, balance, and restraint. Each rug is designed to remain relevant 
-                        for decades, not seasons.
-                    </p>
+    <section class="story-section">
+        <div class="story-content">
+            <p class="story-quote">
+                Every rug I create is woven with the threads of my grandmother's wisdom, my mother's strength, and my own dreams.
+            </p>
+            
+            <p class="story-text">
+                <strong>I grew up in a small apartment in South Chicago</strong>, where my grandmother would sit by the window every evening, her weathered hands moving rhythmically through colorful fabrics. She was making quilts—not just any quilts, but <em>masterpieces</em> that told stories of our ancestors, of struggles overcome, and of hope that refused to die.
+            </p>
+
+            <p class="story-text">
+                I was eight years old when she first placed a needle in my hand. <strong>"Baby girl,"</strong> she said with that warm smile that could light up the darkest room, <strong>"your hands were made to create beauty. Don't you ever forget that."</strong> At the time, I didn't fully understand what she meant. I was just a little Black girl from the South Side, dreaming beyond what seemed possible.
+            </p>
+
+            <p class="story-text">
+                Life wasn't easy. My mother worked three jobs to keep us afloat. There were nights when dinner was thin, and winters when the heat barely worked. But our home? <em>Our home was always beautiful.</em> My grandmother made sure of that. Her quilts draped every surface, bringing warmth not just to our bodies, but to our souls.
+            </p>
+
+            <p class="story-text">
+                <strong>When I lost my grandmother at fifteen</strong>, I lost my anchor. But I didn't lose her legacy. I kept creating—through the pain, through the doubt, through every person who told me that little Black girls from my neighborhood didn't become artists. I channeled my grief into every stitch, every pattern, every texture.
+            </p>
+
+            <p class="story-text">
+                Years later, after working odd jobs and saving every penny, I took a leap of faith. I rented a tiny studio space and started creating rugs—floor art that would bring the same warmth and story my grandmother's quilts brought to our home. <em>People thought I was crazy.</em> <strong>"Who's going to buy expensive rugs from someone with no fancy degree?"</strong> they asked.
+            </p>
+
+            <p class="story-text">
+                But I remembered my grandmother's words: <strong>"Your hands were made to create beauty."</strong> So I kept going. One rug became two. Two became ten. Ten became a collection. And suddenly, people weren't just buying rugs—they were buying <em>pieces of my soul</em>, woven with every struggle, every triumph, every tear, and every smile.
+            </p>
+
+            <p class="story-text">
+                <strong>Today, Rugs by Quana isn't just a business.</strong> It's a testament to every Black woman who's been told she can't. It's a love letter to my grandmother's legacy. It's proof that beauty can emerge from hardship, and that <em>our hands were indeed made to create.</em>
+            </p>
+
+            <p class="story-text">
+                When you bring one of my rugs into your home, you're not just getting floor covering. You're getting a piece of history, a story of resilience, and a reminder that <strong>beauty and strength can coexist in the same space.</strong>
+            </p>
+        </div>
+    </section>
+
+    <div class="about-container">
+        <section class="journey-section">
+            <h2 class="journey-title">The Journey</h2>
+            <div class="journey-grid">
+                <div class="journey-card">
+                    <div class="journey-icon">🧵</div>
+                    <h3>Learning The Craft</h3>
+                    <p>From my grandmother's quilts to my own rugs, every technique was learned with love, patience, and countless hours of practice.</p>
                 </div>
-                <div class="philosophy-item">
-                    <h3>Honest Materials</h3>
-                    <p>
-                        Only natural fibers make it into my work. Wool, silk, and cotton are chosen for 
-                        their beauty, durability, and sustainability. No synthetics, no compromises.
-                    </p>
+                <div class="journey-card">
+                    <div class="journey-icon">💪</div>
+                    <h3>Overcoming Doubt</h3>
+                    <p>Breaking barriers and proving that passion, persistence, and faith can turn dreams into reality, one stitch at a time.</p>
                 </div>
-                <div class="philosophy-item">
-                    <h3>Human Craft</h3>
-                    <p>
-                        Every rug is made entirely by hand using traditional techniques. This slow, 
-                        deliberate process ensures quality and creates unique character that machines 
-                        cannot replicate.
-                    </p>
+                <div class="journey-card">
+                    <div class="journey-icon">✨</div>
+                    <h3>Creating Beauty</h3>
+                    <p>Each rug is a masterpiece crafted with intention, telling a story of heritage, strength, and unwavering hope.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="values-section">
+        <div class="values-content">
+            <h2 class="values-title">What Drives Us</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Heritage & Legacy</h3>
+                    <p>Every rug honors the legacy of Black women artisans who came before me, blending traditional techniques with contemporary vision to create something timeless.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Authentic Craftsmanship</h3>
+                    <p>Each piece is meticulously handcrafted using premium natural materials. No shortcuts, no compromises—just pure artistry and dedication.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Empowerment Through Art</h3>
+                    <p>We believe in the power of beauty to transform spaces and lives. Our rugs are more than decor—they're statements of strength and possibility.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Community & Connection</h3>
+                    <p>Every client becomes part of our story. We're building a community of people who appreciate art, value craftsmanship, and believe in supporting Black-owned businesses.</p>
                 </div>
             </div>
         </div>
@@ -360,9 +535,9 @@
 
     <div class="about-container">
         <div class="cta-section">
-            <h2>Let's Create Something Together</h2>
-            <p>Interested in commissioning a custom piece? I'd love to hear about your vision.</p>
-            <a href="contact.html" class="cta-button">Start a Project</a>
+            <h2>Let's Create Your Story</h2>
+            <p>Ready to bring a piece of this legacy into your home?<br>Each custom rug is a collaboration—your vision, my craft.</p>
+            <a href="contact.html" class="cta-button"><span>Start Your Custom Order</span></a>
         </div>
     </div>
 </body>

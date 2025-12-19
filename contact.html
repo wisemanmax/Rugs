@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Orders - ARTEM RUGS</title>
+    <title>Custom Orders - Rugs By Quana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --secondary: #f5f5f0;
-            --accent: #d4af37;
+            --primary: #2d1810;
+            --secondary: #faf8f5;
+            --accent: #c9a961;
             --text: #2a2a2a;
-            --light-text: #666;
+            --light-text: #6b5d54;
+            --accent2: #8b5a3c;
         }
 
         * {
@@ -22,15 +23,25 @@
             box-sizing: border-box;
         }
 
+        .page-accent {
+            position: fixed;
+            top: 4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, #8b5a3c 100%);
+            z-index: 10000;
+        }
+
         body {
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Raleway', sans-serif;
             background: var(--secondary);
             color: var(--text);
         }
 
         nav {
             position: fixed;
-            top: 0;
+            top: 4px;
             width: 100%;
             padding: 2rem 4rem;
             display: flex;
@@ -43,7 +54,18 @@
         }
 
         .logo {
-            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .logo::after {
+            content: 'by Quana';
+            display: block;
+            font-size: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: -0.3rem;
+            font-family: 'Playfair Display:wght@700;900', sans-serif;
             font-size: 2rem;
             letter-spacing: 0.1em;
             color: var(--primary);
@@ -98,7 +120,7 @@
         }
 
         .contact-hero h1 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display:wght@700;900', sans-serif;
             font-size: 5rem;
             letter-spacing: 0.1em;
             margin-bottom: 1.5rem;
@@ -129,7 +151,7 @@
         }
 
         .contact-info h2 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display:wght@700;900', sans-serif;
             font-size: 2.5rem;
             letter-spacing: 0.1em;
             margin-bottom: 2rem;
@@ -153,7 +175,7 @@
         }
 
         .detail-item h3 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display:wght@700;900', sans-serif;
             font-size: 1.2rem;
             letter-spacing: 0.1em;
             margin-bottom: 0.5rem;
@@ -193,7 +215,7 @@
             padding: 1rem;
             border: 1px solid rgba(26, 26, 26, 0.2);
             background: var(--secondary);
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Raleway', sans-serif;
             font-size: 1rem;
             font-weight: 300;
             color: var(--text);
@@ -222,7 +244,7 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Raleway', sans-serif;
             font-weight: 400;
         }
 
@@ -244,7 +266,7 @@
         }
 
         .process-content h2 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display:wght@700;900', sans-serif;
             font-size: 3rem;
             letter-spacing: 0.1em;
             margin-bottom: 4rem;
@@ -262,7 +284,7 @@
         }
 
         .step-number {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display:wght@700;900', sans-serif;
             font-size: 4rem;
             letter-spacing: 0.1em;
             color: var(--accent);
@@ -270,7 +292,7 @@
         }
 
         .process-step h3 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Playfair Display:wght@700;900', sans-serif;
             font-size: 1.3rem;
             letter-spacing: 0.1em;
             margin-bottom: 1rem;
@@ -335,11 +357,12 @@
     </style>
 </head>
 <body>
+    <div class="page-accent"></div>
     <nav>
-        <a href="index.html" class="logo">ARTEM</a>
+        <a href="index.html" class="logo">RUGS</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Our Story</a></li>
             <li><a href="contact.html">Custom Orders</a></li>
         </ul>
     </nav>
@@ -369,7 +392,7 @@
                 <div class="contact-details">
                     <div class="detail-item">
                         <h3>Email</h3>
-                        <p>hello@artemrugs.com</p>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="224a474e4e4d62435056474f505745510c414d4f">[email&#160;protected]</a></p>
                     </div>
                     <div class="detail-item">
                         <h3>Studio</h3>
@@ -377,7 +400,7 @@
                     </div>
                     <div class="detail-item">
                         <h3>Instagram</h3>
-                        <p>@artemrugs</p>
+                        <p>@rugsbyquana</p>
                     </div>
                 </div>
             </div>
@@ -410,7 +433,7 @@
                     <input type="text" id="dimensions" name="dimensions" placeholder="e.g., 8' × 10'">
                 </div>
                 <div class="form-group">
-                    <label for="message">Tell Me About Your Vision *</label>
+                    <label for="message">Tell Me Our Story Your Vision *</label>
                     <textarea id="message" name="message" required placeholder="Describe your space, style preferences, color palette, and any specific requirements..."></textarea>
                 </div>
                 <button type="submit" class="submit-button">Submit Inquiry</button>
@@ -446,11 +469,5 @@
         </div>
     </section>
 
-    <script>
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your inquiry! This is a demo form. In production, this would send your message to hello@artemrugs.com');
-        });
-    </script>
-</body>
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.querySelector('.contact-form').addEventListener('submi
