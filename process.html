@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Process - Rugs By Quana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d1810;
+            --secondary: #faf8f5;
+            --accent: #c9a961;
+            --accent2: #8b5a3c;
+            --text: #2a2a2a;
+            --light-text: #6b5d54;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            z-index: 10001;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 1.5rem;
+        }
+
+        .page-accent {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+            z-index: 10000;
+        }
+
+        nav {
+            position: fixed;
+            top: 4px;
+            width: 100%;
+            padding: 1.3rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(250, 248, 245, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .logo::after {
+            content: 'by Quana';
+            display: block;
+            font-size: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: -0.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent2);
+        }
+
+        .nav-links a[aria-current="page"] {
+            color: var(--accent2);
+        }
+
+        .nav-links a[aria-current="page"]::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.65rem 1.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 90, 60, 0.4);
+            background: transparent;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent2);
+            color: var(--secondary);
+            border-color: var(--accent2);
+        }
+
+        .process-hero {
+            padding: 160px 4rem 6rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 1.5rem;
+        }
+
+        .process-hero p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            font-weight: 300;
+            color: var(--light-text);
+        }
+
+        .process-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem 6rem;
+            display: grid;
+            gap: 5rem;
+        }
+
+        .hero-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .hero-images img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-grid img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 28px;
+        }
+
+        .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 300;
+        }
+
+        .steps-section {
+            background: #fff;
+            padding: 5rem 4rem;
+            margin: 0 -4rem;
+        }
+
+        .steps-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            letter-spacing: 0.1em;
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+
+        .step-card {
+            padding: 2rem;
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            border-radius: 20px;
+            background: var(--secondary);
+        }
+
+        .step-card span {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent2);
+            letter-spacing: 0.08em;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+            color: var(--light-text);
+        }
+
+        .materials-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 2rem;
+        }
+
+        .materials-section p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            font-weight: 300;
+            color: var(--text);
+            margin-bottom: 2.5rem;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .material-card {
+            background: #fff;
+            border-radius: 22px;
+            padding: 2rem;
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .material-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .material-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+            color: var(--light-text);
+        }
+
+        .closing-banner {
+            background: linear-gradient(120deg, rgba(201, 169, 97, 0.18), rgba(139, 90, 60, 0.12));
+            padding: 4rem;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .closing-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .closing-banner p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: var(--text);
+        }
+
+        @media (max-width: 1024px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .materials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem 2rem;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-hero {
+                padding: 140px 2rem 4rem;
+            }
+
+            .process-layout {
+                padding: 0 2rem 4rem;
+            }
+
+            .steps-section {
+                padding: 4rem 2rem;
+                margin: 0 -2rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-accent"></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <nav aria-label="Primary">
+        <a href="index.html" class="logo">RUGS</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#featured">Collection</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="process.html" aria-current="page">The Process</a></li>
+            <li><a href="social.html">Social</a></li>
+            <li><a class="nav-cta" href="contact.html">Custom Orders</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <section class="process-hero">
+            <h1>THE PROCESS</h1>
+            <p>
+                Every Rugs By Quana piece begins with a story and ends with a soulful, hand-finished
+                heirloom. From sourcing fibers to the final shearing, each step is guided by careful
+                craftsmanship, warm texture, and a commitment to timeless design.
+            </p>
+        </section>
+
+        <section class="process-layout">
+            <div class="hero-images">
+                <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=900&q=80" alt="Soft wool fibers ready for spinning and dyeing">
+                <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" alt="Artisan hands working with yarn and natural textures">
+                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80" alt="A finished rug styled in a serene, sunlit interior">
+            </div>
+
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>From Sketch to Studio</h2>
+                    <p>
+                        It starts with a conversation about color, mood, and movement. We sketch
+                        your vision, gather inspiration from architecture and textiles, and translate
+                        the feeling of your space into a tactile blueprint.
+                    </p>
+                    <p>
+                        Each design is mapped knot by knot, balancing depth, dimension, and flow.
+                        The goal is a rug that feels alive — a piece that anchors the room while
+                        reflecting the quiet artistry of the maker.
+                    </p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1459908676235-d5f02eaf1fef?auto=format&fit=crop&w=1000&q=80" alt="Colorful spools of yarn arranged for dye testing">
+            </div>
+
+            <section class="steps-section">
+                <h2>How Your Rug Is Made</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span>01</span>
+                        <h3>Material Selection</h3>
+                        <p>
+                            We source premium New Zealand wool and organic cotton foundations for
+                            exceptional softness, resilience, and rich color depth.
+                        </p>
+                    </div>
+                    <div class="step-card">
+                        <span>02</span>
+                        <h3>Hand Dyeing</h3>
+                        <p>
+                            Fibers are hand dyed in small batches, creating layered hues that glow
+                            under natural light and stay vibrant for years.
+                        </p>
+                    </div>
+                    <div class="step-card">
+                        <span>03</span>
+                        <h3>Tufting & Carving</h3>
+                        <p>
+                            Each line is tufted by hand, then sculpted and carved to create sculptural
+                            contours and a signature plush feel.
+                        </p>
+                    </div>
+                    <div class="step-card">
+                        <span>04</span>
+                        <h3>Finishing Touches</h3>
+                        <p>
+                            Edges are bound, the surface is sheared for an even finish, and every rug
+                            is inspected for durability before it leaves the studio.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="materials-section">
+                <h2>Signature Materials</h2>
+                <p>
+                    The beauty of a Rugs By Quana piece comes from the materials beneath your feet.
+                    Every fiber is chosen for how it feels, how it wears, and how it holds color.
+                </p>
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <h3>New Zealand Wool</h3>
+                        <p>
+                            Silky, springy, and naturally stain-resistant, this wool delivers a cloud-like
+                            pile with exceptional longevity.
+                        </p>
+                    </div>
+                    <div class="material-card">
+                        <h3>Organic Cotton</h3>
+                        <p>
+                            A breathable foundation that keeps each rug structured, stable, and smooth
+                            against the floor.
+                        </p>
+                    </div>
+                    <div class="material-card">
+                        <h3>Botanical Dyes</h3>
+                        <p>
+                            Gentle, layered pigments inspired by earth and sea tones provide a nuanced
+                            palette that feels modern yet grounded.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="closing-banner">
+                <h2>Crafted to Feel Like Home</h2>
+                <p>
+                    Your rug is more than a decorative piece. It is a tactile landscape made to welcome
+                    you home, soften every step, and hold the memory of slow, intentional craft.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
