@@ -23,10 +23,34 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Raleway', sans-serif;
             background: var(--secondary);
             color: var(--text);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            z-index: 10001;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 1.5rem;
         }
 
         .page-accent {
@@ -43,7 +67,7 @@
             position: fixed;
             top: 4px;
             width: 100%;
-            padding: 1.5rem 4rem;
+            padding: 1.3rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -77,6 +101,7 @@
             display: flex;
             gap: 3rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -106,8 +131,38 @@
             color: var(--accent2);
         }
 
+        .nav-links a[aria-current="page"] {
+            color: var(--accent2);
+        }
+
+        .nav-links a[aria-current="page"]::after {
+            width: 100%;
+        }
+
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.65rem 1.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 90, 60, 0.4);
+            background: transparent;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent2);
+            color: var(--secondary);
+            border-color: var(--accent2);
         }
 
         .product-container {
@@ -347,11 +402,20 @@
             }
 
             nav {
-                padding: 1.5rem 2rem;
+                padding: 1rem 2rem;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
 
             .nav-links {
-                gap: 1.5rem;
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-cta {
+                width: 100%;
+                text-align: center;
             }
 
             .button-group {
@@ -362,17 +426,20 @@
 </head>
 <body>
     <div class="page-accent"></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     
-    <nav>
+    <nav aria-label="Primary">
         <a href="index.html" class="logo">RUGS</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#featured" aria-current="page">Collection</a></li>
             <li><a href="about.html">Our Story</a></li>
-            <li><a href="contact.html">Custom Orders</a></li>
+            <li><a class="nav-cta" href="contact.html">Custom Orders</a></li>
         </ul>
     </nav>
 
-    <div class="product-container">
+    <main id="main-content">
+        <div class="product-container">
         <div class="product-grid">
             <div class="product-image">
                 <div class="product-badge">Pre-Order</div>
@@ -432,5 +499,6 @@
             </div>
         </div>
     </div>
+    </main>
 </body>
 </html>
