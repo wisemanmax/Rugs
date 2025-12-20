@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media - Rugs By Quana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d1810;
+            --secondary: #faf8f5;
+            --accent: #c9a961;
+            --accent2: #8b5a3c;
+            --text: #2a2a2a;
+            --light-text: #6b5d54;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            z-index: 10001;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 1.5rem;
+        }
+
+        .page-accent {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+            z-index: 10000;
+        }
+
+        nav {
+            position: fixed;
+            top: 4px;
+            width: 100%;
+            padding: 1.3rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(250, 248, 245, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .logo::after {
+            content: 'by Quana';
+            display: block;
+            font-size: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: -0.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent2);
+        }
+
+        .nav-links a[aria-current="page"] {
+            color: var(--accent2);
+        }
+
+        .nav-links a[aria-current="page"]::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.65rem 1.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 90, 60, 0.4);
+            background: transparent;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent2);
+            color: var(--secondary);
+            border-color: var(--accent2);
+        }
+
+        .social-hero {
+            padding: 160px 4rem 4rem;
+            text-align: center;
+        }
+
+        .social-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-hero p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: var(--light-text);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .social-grid {
+            max-width: 900px;
+            margin: 0 auto 6rem;
+            padding: 0 4rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .social-card {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .social-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+
+        .social-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-card a {
+            display: inline-block;
+            padding: 0.6rem 1.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 90, 60, 0.4);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .social-card a:hover {
+            background: var(--accent2);
+            color: var(--secondary);
+            border-color: var(--accent2);
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 2rem;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .social-hero {
+                padding: 140px 2rem 3rem;
+            }
+
+            .social-hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-accent"></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <nav aria-label="Primary">
+        <a href="index.html" class="logo">RUGS</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#featured">Collection</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="process.html">The Process</a></li>
+            <li><a href="social.html" aria-current="page">Social</a></li>
+            <li><a class="nav-cta" href="contact.html">Custom Orders</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <section class="social-hero">
+            <h1>SOCIAL MEDIA</h1>
+            <p>
+                Stay connected for behind-the-scenes studio moments, new collection drops, and
+                styling inspiration. Follow along and say hello.
+            </p>
+        </section>
+
+        <section class="social-grid">
+            <div class="social-card">
+                <h2>Instagram</h2>
+                <p>Daily texture, color stories, and process snapshots.</p>
+                <a href="https://instagram.com/rugsbyquana" target="_blank" rel="noopener">Follow</a>
+            </div>
+            <div class="social-card">
+                <h2>X</h2>
+                <p>Studio notes, updates, and creative musings.</p>
+                <a href="https://x.com/rugsbyquana" target="_blank" rel="noopener">Connect</a>
+            </div>
+            <div class="social-card">
+                <h2>Facebook</h2>
+                <p>Community highlights and event announcements.</p>
+                <a href="https://facebook.com/rugsbyquana" target="_blank" rel="noopener">Visit</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
